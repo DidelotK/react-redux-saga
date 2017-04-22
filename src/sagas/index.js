@@ -1,14 +1,11 @@
-import { take, put } from 'redux-saga/effects';
-
-const test = function*() {
-  while (true) {
-    yield take('TEST');
-    yield put('TEST_2');
-  }
-};
+import appSagas from './app';
+import resource1Sagas from './resource1';
+import resource2Sagas from './resource2';
 
 export default function*() {
   yield [
-    test
+    ...appSagas,
+    ...resource1Sagas,
+    ...resource2Sagas
   ];
 };
